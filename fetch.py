@@ -19,7 +19,7 @@ def fetch_data(title=None, author=None, subject=None):
             continue
 
         if not isinstance(value, str):
-            raise ValueError("Search values must be text.")
+            raise TypeError("Search values must be text.")
 
         value = value.strip()
 
@@ -27,7 +27,7 @@ def fetch_data(title=None, author=None, subject=None):
             filtered_params[key] = value
     if not filtered_params:
         raise ValueError("At least one search parameter must be provided.")
-    filtered_params["limit"] = 10
+    filtered_params["limit"] = 20
     filtered_params["fields"] = "title,author_name,first_publish_year,subject,key"
     try:
         response = requests.get(url, params=filtered_params, timeout=10)
