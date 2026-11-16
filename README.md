@@ -14,4 +14,4 @@ To search you will enter one string the last name, first name of the author or a
 
 The API used is assigned to a URL: https://openlibrary.org/search.json?
 
-![Project Screenshot](images/Screenshot 2026-11-15 151435.png)
+![Project Screenshot](images/menu.png)
