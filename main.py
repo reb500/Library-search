@@ -9,7 +9,7 @@ from display import *
 def main():
     while True:
         options = ["1", "2", "3"]
-        saved_books = []
+
         try:
             user_choice = input(
                 "Select an Option:\n1. Search Library\n2. Saved Books\n3. Exit\n"
@@ -40,12 +40,11 @@ def main():
 
             except ValueError:
                 print("Can't convert text to an integer.")
-
-            if isinstance(save_book, int):
-                print(f" Saving book, # {save_book}")
-                book_list = return_book_list(book_dict)
-                saved_books.append(book_list[save_book])
-                print(saved_books)
+                continue
+            print(f" Saving book, # {save_book}")
+            book_list = return_book_list(book_dict)
+            saved_books.append(book_list[save_book])
+            print(saved_books)
 
         elif user_choice == "2":
             print(saved_books)
@@ -61,4 +60,5 @@ def main():
 
 if __name__ == "__main__":
     print("\nRunning Library-search program")
+    saved_books = []
     main()
