@@ -2,13 +2,16 @@ def parse_data(data=None, book_number=None):
     b_dictionary = {}
     books = data["docs"]
     for book in books:
-        title = book["title"]
-        author = book["author_name"]
-        first_publish_year = book["first_publish_year"]
+        title = book.get("title", None)
+        author = book.get("author_name", None)
+        first_publish_year = book.get("first_publish_year", None)
         subject = title.split()
-        key = book["key"]
+        key = book.get("key")
         b_dictionary[key] = title, author, first_publish_year, subject
-    return b_dictionary
+    if not books:
+        return "No Search results try again."
+    else:
+        return b_dictionary
 
     if book_number is not None:
         item_in_booklist = books[book_number]
